@@ -30,18 +30,12 @@ const ListComponent = (props) => {
                     <p className={s.bannerName}>
                         Hello, {props.login.username}
                     </p>
-                    {/*<button className={s.bannerName} onClick={()=>{logout()}}>*/}
-                    {/*    Logout*/}
-                    {/*</button>*/}
                     <MyCustomButton component={'button'}
                                     textValue={'Logout'}
                                     className={s.bannerName}
                                     onClick={()=>{logout()}}/>
                 </div>
                 <div className={s.buttons}>
-                    {/*<NavLink to={`/new`} className='black-button' onClick={()=>{redirect(false)}}>*/}
-                    {/*    New Contact*/}
-                    {/*</NavLink>*/}
                     <MyCustomButton component={'a'}
                                     textValue={'New Contact'}
                                     className='black-button'
@@ -54,12 +48,6 @@ const ListComponent = (props) => {
                     </CSVLink>
                 </div>
             </div>
-            {/*<MyCustomButton component={'button'}*/}
-            {/*                textValue={'Download CSV'}*/}
-            {/*                className='black-button'*/}
-            {/*                link={'/new'}*/}
-            {/*                submit={true}*/}
-            {/*/>*/}
             <div className={s.list}>
                 {props.contacts.map(c=>
                     <ListItem contact={c} redirect={redirect}

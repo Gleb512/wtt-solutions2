@@ -27,9 +27,6 @@ const ListFormRedux = (props) => {
                 component='input'
                 type="hidden"
             />
-            {/*<button className="button" type="submit" label="submit">*/}
-            {/*    Submit*/}
-            {/*</button>*/}
             <MyCustomButton component={'button'}
                             textValue={'Submit'}
                             className='button'

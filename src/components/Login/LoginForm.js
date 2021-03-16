@@ -12,9 +12,6 @@ const LoginReduxForm = (props) => {
                 type="text"
                 placeholder="What's your name?"
             />
-            {/*<button className="button" type="submit" label="submit">*/}
-            {/*    Submit*/}
-            {/*</button>*/}
             <MyCustomButton component={'button'}
                             textValue={'Submit'}
                             className='button'

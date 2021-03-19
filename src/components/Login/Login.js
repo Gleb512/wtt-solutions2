@@ -1,9 +1,9 @@
-import React from 'react'
-import {connect} from "react-redux";
-import s from './Login.module.css'
-import LoginForm from "./LoginForm";
-import {logFunc} from "../../redux/login-reducer";
-import {Redirect} from "react-router-dom";
+import React from "react"
+import {connect} from "react-redux"
+import s from "./Login.module.css"
+import LoginForm from "./LoginForm"
+import {logFunc} from "../../redux/login-reducer"
+import {Redirect} from "react-router-dom"
 
 const Login = (props) => {
     const submit = values => {
@@ -12,7 +12,7 @@ const Login = (props) => {
         }
     };
     if(props.login.login){
-        return <Redirect to={'/'} />
+        return <Redirect to="/" />
     }
     return (
         <div className={s.login}>
@@ -31,7 +31,7 @@ let mapStateToProps = state =>{
 }
 
 const LoginContainer = connect(mapStateToProps, {logFunc})
-(Login);
+(Login)
 
 
 export default LoginContainer

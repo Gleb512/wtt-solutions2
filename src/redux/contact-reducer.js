@@ -1,14 +1,14 @@
-import {updateContactFunc} from "../utils/utils";
+import {updateContactFunc} from "../utils/utils"
 
-const ADD = 'ADD'
-const UPDATE = 'UPDATE'
+const ADD = "ADD"
+const UPDATE = "UPDATE"
 
 let initialState = {
     contacts: [
-        {id: 1, username: 'Alex Smith', img: 'https://picsum.photos/200', phone: '0939199372'},
-        {id: 2, username: 'Bread Stone', img: 'https://picsum.photos/200', phone: '0939199373'},
-        {id: 3, username: 'Cindy Snow', img: 'https://picsum.photos/200', phone: '0939199374'},
-        {id: 4, username: 'Daddy Doggy', img: 'https://picsum.photos/200', phone: '0939199375'},
+        {id: 1, username: "Alex Smith", phone: "0939199372", img: "https://picsum.photos/200"},
+        {id: 2, username: "Bread Stone", phone: "0939199373", img: "https://picsum.photos/200"},
+        {id: 3, username: "Cindy Snow", phone: "0939199374", img: "https://picsum.photos/200"},
+        {id: 4, username: "Daddy Doggy", phone: "0939199375", img: "https://picsum.photos/200"},
     ]
 }
 
@@ -23,9 +23,9 @@ const contactReducer = (state = initialState , action) => {
                 contacts: [
                     ...state.contacts,
                     {
-                        ...action.object,
                         id: Date.now(),
-                        img: 'https://picsum.photos/200',
+                        ...action.object,
+                        img: "https://picsum.photos/200",
                     }]
             };
         case UPDATE:
@@ -58,4 +58,4 @@ export const contactFunc = (contactObject, id) => {
 }
 
 
-export default contactReducer;
+export default contactReducer

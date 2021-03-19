@@ -13,6 +13,10 @@
 .item img{
     max-width: 127px;
     border-radius: 50%;
+    min-height: 127px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .header{
     display: flex;
@@ -76,6 +80,11 @@ button.bannerName{
     color: #000000;
     margin-top: 16px;
     margin-bottom: 11px;
+}
+.close{
+    position: absolute;
+    right: 42px;
+    top: 37px;
 }
 @media screen and (max-width: 1024px){
     .list{

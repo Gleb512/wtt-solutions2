@@ -1,8 +1,19 @@
 import {applyMiddleware, combineReducers, createStore} from "redux"
-import loginReducer from "./login-reducer";
-import thunkMiddleware from "redux-thunk";
-import {reducer as formReducer} from 'redux-form';
-import contactReducer from "./contact-reducer";
+import loginReducer from "./login-reducer"
+import thunkMiddleware from "redux-thunk"
+import {reducer as formReducer} from "redux-form"
+import contactReducer from "./contact-reducer"
+import { persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage"
+import hardSet from "redux-persist/lib/stateReconciler/hardSet"
+import crossBrowserListener from "../utils/storage-listener"
+
+
+const persistConfig = {
+    key: "root",
+    storage,
+    stateReconciler: hardSet
+}
 
 
 // Reducer Pack creating
@@ -11,47 +22,14 @@ let reducerPack = combineReducers({
     contact: contactReducer,
     form: formReducer
 })
-
-// Connecting state to localstorage functionality
-const loadState = () => {
-    try {
-        const serializedState = localStorage.getItem('state');
-        if (serializedState === null) {
-            return undefined;
-        } else {
-            return JSON.parse(serializedState);
-        }
-    } catch (err) {
-        return undefined;
-    }
-}
+const persistedReducer = persistReducer(persistConfig, reducerPack)
 
 
-let store = createStore(
-    reducerPack,
-    loadState(),
-    applyMiddleware(thunkMiddleware)
-);
-
-
-
-// Connecting state to localstorage - continue...
-const saveState = (state) => {
-    try {
-        const serializedState = JSON.stringify(state);
-        localStorage.setItem('state', serializedState);
-    } catch (err) {
-
-    }
-};
-
-store.subscribe(() => {
-    const state = store.getState();
-    saveState(state);
-})
+const store = createStore(persistedReducer, {}, applyMiddleware(thunkMiddleware))
+window.addEventListener("storage", crossBrowserListener(store, persistConfig));
 
 
 // For Debug
-// window.store = store;
+window.store = store;
 
-export default store;
+export default store

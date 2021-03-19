@@ -62,7 +62,7 @@ input{
   margin-bottom: 22px;
   outline: none;
   max-width: 320px;
-  width: 100%;
+  width: 320px;
 }
 input::placeholder{
   color: #737373;

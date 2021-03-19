@@ -1,4 +1,4 @@
-const LOG = 'LOG'
+const LOG = "LOG"
 
 let initialState = {
     login: false,
@@ -17,7 +17,7 @@ const loginReducer = (state = initialState , action) => {
                 username: action.username ? action.username : null
             };
         default:
-            return state;
+            return state
     }
 }
 
@@ -35,4 +35,4 @@ export const logFunc = (value, username) => {
 }
 
 
-export default loginReducer;
+export default loginReducer
